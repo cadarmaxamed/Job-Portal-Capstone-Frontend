@@ -13,7 +13,7 @@
 import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { Footer, Navbar } from "./components";
+import { Footer, NavigationBar } from "./components";
 import {
   About,
   AuthPage,
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <main className='bg-[#f7fdfd]'>
-      <Navbar />
+      <NavigationBar />
 
       <Routes>
         <Route element={<Layout />}>
