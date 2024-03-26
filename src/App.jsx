@@ -1,70 +1,65 @@
+// src/App.jsx
 
-// function App() {
-  
-// return(
-//  <main>
-//     <header>TechJobs24</header>
-//     <nav></nav>
-//     <footer></footer>
-//  </main>
-// )}
-// export default App;
+import React from 'react';
+import { Route, Routes } from 'react-router-dom'
+import axios from 'axios';
+import Header from './components/Header';
+import Menu from './components/Menu';
+import Navbar from './components/Navbar';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import JobPostingsPage from './pages/JobPostingsPage';
+import JobTypesPage from './pages/JobTypesPage';
+<link rel="stylesheet" href="index.css"/>
 
-import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { Footer, NavigationBar } from "./components";
-import {
-  About,
-  AuthPage,
-  Companies,
-  CompanyProfile,
-  FindJobs,
-  JobDetail,
-  UploadJob,
-  UserProfile,
-} from "./pages";
+const App = () => {
+  // Function to fetch data from the backend for job postings
+  const fetchJobPostings = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/JobPostings');
+      console.log(response.data); // Log the fetched data from the backend
+    } catch (error) {
+      console.error('Error fetching job postings data:', error);
+    }
+  };
 
-function Layout() {
-  const { user } = useSelector((state) => state.user);
-  const location = useLocation();
+  // Function to fetch data from the backend for job types
+  const fetchJobTypes = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/JobTypes');
+      console.log(response.data); // Log the fetched data from the backend
+    } catch (error) {
+      console.error('Error fetching job types data:', error);
+    }
+  };
 
-  return user?.token ? (
-    <Outlet />
-  ) : (
-    <Navigate to='/user-auth' state={{ from: location }} replace />
-  );
-}
-
-function App() {
-  const { user } = useSelector((state) => state.user);
+  // Call fetchData function for job postings when the component mounts
+  React.useEffect(() => {
+    fetchJobPostings();
+    fetchJobTypes();
+  }, []);
 
   return (
-    <main className='bg-[#f7fdfd]'>
-      <NavigationBar />
+   <>
+      <div>
+        <Header />
+        <Menu />
+        <div className="flex">
+          <Navbar />
+        <Routes>
+            <Route path="*"  element={<HomePage/>} />
+            <Route path="/HomePage" element={<HomePage/>} />
+            <Route path="/job_postings" element={<JobPostingsPage/>} />
+            <Route path="/job-types" element={<JobTypesPage/>} />
+       </Routes>
+        </div>
+        <Footer />
+      </div>
 
-      <Routes>
-        <Route element={<Layout />}>
-          <Route
-            path='/'
-            element={<Navigate to='/find-jobs' replace={true} />}
-          />
-          <Route path='/find-jobs' element={<FindJobs />} />
-          <Route path='/companies' element={<Companies />} />
-          <Route path={"/user-profile/:id?"} element={<UserProfile />} />
-
-          <Route path={"/company-profile"} element={<CompanyProfile />} />
-          <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
-          <Route path={"/upload-job"} element={<UploadJob />} />
-          <Route path={"/job-detail/:id"} element={<JobDetail />} />
-        </Route>
-
-        <Route path='/about-us' element={<About />} />
-        <Route path='/user-auth' element={<AuthPage />} />
-      </Routes>
-      {user && <Footer />}
-    </main>
+    </>
   );
-}
+};
 
 export default App;
