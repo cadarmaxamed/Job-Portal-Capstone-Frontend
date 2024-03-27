@@ -10,8 +10,9 @@ const JobPostingsPage = () => {
 
   const fetchJobPostings = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/job-postings');
+      const response = await axios.get('http://localhost:3000/JobPostings');
       setJobPostings(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error('Error fetching job postings:', error);
     }

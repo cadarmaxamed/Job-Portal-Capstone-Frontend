@@ -10,7 +10,6 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import JobPostingsPage from './pages/JobPostingsPage';
-import JobTypesPage from './pages/JobTypesPage';
 <link rel="stylesheet" href="index.css"/>
 
 
@@ -26,19 +25,10 @@ const App = () => {
   };
 
   // Function to fetch data from the backend for job types
-  const fetchJobTypes = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/JobTypes');
-      console.log(response.data); // Log the fetched data from the backend
-    } catch (error) {
-      console.error('Error fetching job types data:', error);
-    }
-  };
 
   // Call fetchData function for job postings when the component mounts
   React.useEffect(() => {
     fetchJobPostings();
-    fetchJobTypes();
   }, []);
 
   return (
@@ -52,7 +42,6 @@ const App = () => {
             <Route path="*"  element={<HomePage/>} />
             <Route path="/HomePage" element={<HomePage/>} />
             <Route path="/job_postings" element={<JobPostingsPage/>} />
-            <Route path="/job-types" element={<JobTypesPage/>} />
        </Routes>
         </div>
         <Footer />

@@ -1,5 +1,3 @@
-// src/components/Footer.js
-
 import React, { useState } from 'react';
 
 const Footer = () => {
@@ -46,7 +44,6 @@ const Footer = () => {
         {/* Copyright and logo */}
         <div className="flex items-center space-x-2">
           <span>&copy; 2024 TechJobs</span>
-       
         </div>
       </div>
       {/* Contact form popup */}
@@ -80,4 +77,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
