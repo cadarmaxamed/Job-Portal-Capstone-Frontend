@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import JobPostingsPage from './pages/JobPostingsPage';
 import AboutPage from './pages/AboutPage';
 import linkedinJobs from './pages/LinkedlnJobs';
+import LinkedinJobsPage from './pages/LinkedlnJobs';
 <link rel="stylesheet" href="index.css"/>
 
 
@@ -47,6 +48,8 @@ const App = () => {
             <Route path="*" element={<JobPostingsPage/>} />
             <Route path="/About" element={<AboutPage/>} />
             <Route path="*" element={<AboutPage/>} />
+            <Route path="/LinkedlnJobs" element={<LinkedinJobsPage/>} />
+            <Route path="*" element={<LinkedinJobsPage/>} />
             
 
        </Routes>

@@ -23,12 +23,14 @@ const JobPostingsPage = () => {
   return (
     <div>
       <h1>Job Postings</h1>
-      <div className="grid grid-cols-3 grid-rows-3 gap-4">
+      
         {/* Render JobCard component for each job posting */}
         {jobPostings.map((job) => (
-          <JobCard key={job.id} job={job} className="col-span-full" />
+          
+          <JobCard key={job.id} job={job} />
+      
         ))}
-      </div>
+      
     </div>
   );
 };

@@ -137,15 +137,11 @@ const HomePage = () => {
             "experienceLevel": "Mid to Senior Level"
         }
     ];
-    
- 
-
-  return (
-    <div>
-      <h1>Welcome to TechJobs For All</h1>
-      <MainContent jobListings={jobListings} />
-    </div>
-  );
-};
-
-export default HomePage;
+    return(
+        <div>
+        <h1>Welcome to TechJobs For All</h1>
+         <MainContent jobListings={jobListings} />
+      </div>
+    );
+  };
+  export default HomePage;

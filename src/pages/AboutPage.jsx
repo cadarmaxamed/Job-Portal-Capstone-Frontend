@@ -5,14 +5,13 @@ const AboutPage = () => {
     <div className='container mx-auto flex flex-col gap-8 2xl:gap-14 py-6'>
       <div className='w-full flex flex-col-reverse md:flex-row gap-10 items-center p-5'>
         <div className='w-full md:w-2/3 2xl:w-2/4'>
-          <h1 className='text-3xl text-blue-600 font-bold mb-5'>About Us</h1>
-        </div>
-
+   </div>
+    <br />
         <div className='leading-8 px-5 text-justify'>
           <div>
             <p>
-              About Us
               <br />
+              <h1 className='text-3xl text-blue-600 font-bold mb-5'>About Us</h1>
               Welcome to TechJobs For All, your one-stop destination for connecting tech professionals with exciting career opportunities worldwide. At TechJobs For All, we're committed to revolutionizing the way individuals and companies discover talent and find their dream jobs.
               <br /><br />
               Our Mission
