@@ -1,19 +1,10 @@
-// src/components/Navbar.js
-
 import React, { useState } from 'react';
 
-const Navbar = ({ onSort, onFilter }) => {
-  const [sortBy, setSortBy] = useState('postedDate');
+const Navbar = ({ onFilter }) => {
   const [filterOptions, setFilterOptions] = useState({
     postedDate: [],
     experienceLevel: []
   });
-
-  const handleSortChange = (e) => {
-    const value = e.target.value;
-    setSortBy(value);
-    onSort(value);
-  };
 
   const handleFilterChange = (e) => {
     const { name, checked, value } = e.target;
@@ -30,14 +21,6 @@ const Navbar = ({ onSort, onFilter }) => {
   return (
     <div className="bg-gray-200 p-4">
       <form>
-        <div className="flex items-center mb-4">
-          <label htmlFor="sortBy" className="mr-2">Sort By:</label>
-          <select id="sortBy" name="sortBy" value={sortBy} onChange={handleSortChange} className="p-2 border border-gray-300 rounded">
-            <option value="postedDate">Posted Date</option>
-            <option value="title">Title</option>
-            <option value="skillsRequired">Skills Required</option>
-          </select>
-        </div>
         <div className="mb-4">
           <p>Filter By:</p>
           <label className="block">
