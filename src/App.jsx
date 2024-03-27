@@ -10,6 +10,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import JobPostingsPage from './pages/JobPostingsPage';
+import AboutPage from './pages/AboutPage';
 <link rel="stylesheet" href="index.css"/>
 
 
@@ -42,10 +43,14 @@ const App = () => {
             <Route path="*"  element={<HomePage/>} />
             <Route path="/HomePage" element={<HomePage/>} />
             <Route path="/JobPostings" element={<JobPostingsPage/>} />
+            <Route path="/About" element={<AboutPage/>} />
+
        </Routes>
+       
         </div>
         <Footer />
       </div>
+
 
     </>
   );
