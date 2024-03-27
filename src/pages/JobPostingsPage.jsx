@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import JobCard from '../components/JobCard';
 import axios from 'axios';
+
 
 const JobPostingsPage = () => {
   const [jobPostings, setJobPostings] = useState([]);
@@ -21,17 +23,15 @@ const JobPostingsPage = () => {
   return (
     <div>
       <h1>Job Postings</h1>
-      {jobPostings.map((job) => (
-          <div key={job._id}>
-            <h2>{job.jobTitle}</h2>
-            <p>{job.jobDescription}</p>
-            <p>Company: {job.company}</p>
-            <p>Posted Date: {job.postedDate}</p>
-            {/* Add more details as needed */}
-          </div>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Render JobCard component for each job posting */}
+        {jobPostings.map((job) => (
+          <JobCard key={job._id} job={job} />
+        ))}
+      </div>
     </div>
   );
 };
 
 export default JobPostingsPage;
+

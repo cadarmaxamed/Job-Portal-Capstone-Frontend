@@ -1,6 +1,29 @@
+/* Custom CSS */
+Maincontent {
+    display: flex;
+    align-content: space-around;
+    align-items: center;
+}
 
+Footer {
+    position: flex;
+    bottom: 0;
+    width: 100%;
+}
 
+Navbar {
+    width: 20%; /* Changed to 20% as per your requirement */
+}
+
+Menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Tailwind CSS */ 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
