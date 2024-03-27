@@ -51,6 +51,8 @@ const Footer = () => {
         <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center">
           <div className="bg-white p-8 rounded shadow-md max-w-md">
             <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+            <p className="mb-2">Please Fill out one form per question or concern</p>
+            <p className="mb-4">I appreciate your feedback!</p>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="name" className="block font-medium mb-1">Name</label>
@@ -77,3 +79,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
